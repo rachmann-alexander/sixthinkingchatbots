@@ -1,0 +1,63 @@
+# Prompt
+The goal of the workshop is to evaluate three alternatives to a problem. The problem is: The sales process on our companies website does not work very well. Management wants us to change the sales process to one of the three alternatives: First, an old-school chatbot with a beforehand written structure. Second, a chatbot using a large language model, without a pre-defined structure. Third, an old-school contact form.
+
+Evaluate which solution one would prefer. Give at most 15 arguments. After listing the arguments, write a conclusion including a selection on a solution.
+
+Use markdown syntax.
+
+# Response
+### Evaluation of Sales Process Alternatives
+
+#### Problem Statement:
+The current sales process on the company's website is underperforming, and management is considering three alternatives to improve it:
+
+1. **Old-school Chatbot with Predefined Structure**
+2. **Chatbot using a Large Language Model**
+3. **Old-School Contact Form**
+
+#### Evaluation Criteria:
+The evaluation will consider various factors such as user experience, cost, implementation time, maintenance, and effectiveness among others.
+
+---
+
+#### 1. Old-School Chatbot with Predefined Structure
+- **Pros:**
+  1. **Consistency**: Delivers a consistent user experience.
+  2. **Reliability**: Less likely to produce unexpected results.
+  3. **Cost**: Generally cheaper to implement and maintain than more advanced options.
+  4. **Speed**: Can provide quick responses based on the predefined script.
+  5. **Ease of Implementation**: Generally easier to set up and launch.
+- **Cons:**
+  1. **Limited Flexibility**: Can't handle queries outside its programmed script.
+  2. **User Frustration**: May lead to user frustration if their queries are not anticipated by the script.
+  3. **Outdated Feel**: Might feel outdated or impersonal to users.
+
+#### 2. Chatbot using a Large Language Model
+- **Pros:**
+  1. **Flexibility**: Can handle a wide range of queries with natural, conversational responses.
+  2. **Scalability**: Can improve over time with more data and interactions.
+  3. **User Engagement**: Tends to offer a more engaging user experience.
+  4. **Personalization**: Capable of providing personalized recommendations or responses.
+  5. **Advanced Capabilities**: Can integrate with other services for a more robust solution.
+- **Cons:**
+  1. **Cost**: Generally more expensive to implement and maintain.
+  2. **Complexity**: Requires more sophisticated development and maintenance.
+  3. **Unpredictability**: May sometimes provide inaccurate or unexpected responses.
+  4. **Data Privacy**: Handling of sensitive user data needs to be carefully managed.
+
+#### 3. Old-School Contact Form
+- **Pros:**
+  1. **Simplicity**: Straightforward for users to understand and use.
+  2. **Reliability**: Less prone to errors or misunderstandings.
+  3. **Cost-Effective**: Inexpensive to implement and maintain.
+  4. **Data Collection**: Can be a good way to collect specific information from users.
+- **Cons:**
+  1. **User Engagement**: Generally the least engaging and interactive option.
+  2. **Slow Response Time**: Can lead to delays as responses are not immediate.
+  3. **Limited Information**: Only collects information that is specifically asked for.
+
+---
+
+### Conclusion:
+
+After considering the various pros and cons of each alternative, the **Chatbot using a Large Language Model** seems to be the most promising option. While it is more expensive and complex to implement, the benefits of flexibility, scalability, and enhanced user engagement make it a worthwhile investment for the future of the sales process. It's important, however, to ensure that issues of data privacy and potential unpredictability are carefully managed. This solution, if implemented effectively, can significantly improve the user experience on the company's website and thereby potentially increase sales and customer satisfaction.
