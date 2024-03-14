@@ -70,15 +70,6 @@ class SixThinkingChatbots():
         match self.mode:
             case "alternatives":
                 self.renderAlternatives()
-                #self.renderAlternativesSetPromptsWithoutBlue()
-                #self.white_response = self.callChatGPT(self.white_system_content, self.white_prompt)
-                #self.green_response = self.callChatGPT(self.green_system_content, self.green_prompt)
-                #self.yellow_response = self.callChatGPT(self.yellow_system_content, self.yellow_prompt)
-                #self.black_response = self.callChatGPT(self.black_system_content, self.black_prompt)
-                #self.red_response = self.callChatGPT(self.red_system_content, self.red_prompt)
-  
-                #self.renderAlternativesSetPromptsOnlyBlue()
-                #self.blue_response = self.callChatGPT(self.blue_system_content, self.blue_prompt)
 
             case "somethingElse":
                 print("something else")
