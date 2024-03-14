@@ -11,4 +11,4 @@ Prototypical Implemention of a AI-supported Six Thinking Hats-Methodology
 2. Checkout sixthinkingchatbots.py
 3. Create a file config.py and define variable API_KEY='your-api-key'
 4. Change problem statement in line 150-154 to your own problem statement.
-5. See result as a string (please, be patient; there is a built-in 20 second delay, to not-freak out OpenAI).
+5. See result as a string (please, be patient; there is a built-in delay callChatGPT(), to not-freak out OpenAI).
