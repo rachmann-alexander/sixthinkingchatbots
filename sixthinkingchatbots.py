@@ -302,7 +302,9 @@ class SixThinkingChatbots():
             messages=[
                 {"role": "system", "content": system_content},
                 {"role": "user", "content": prompt}
-            ]
+            ],
+            temperature=0.5, #https://community.openai.com/t/cheat-sheet-mastering-temperature-and-top-p-in-chatgpt-api/172683
+            top_p=0.5
         )
 
         time.sleep(0.1)
