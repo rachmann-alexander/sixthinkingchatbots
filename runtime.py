@@ -5,7 +5,7 @@ problemAlternativesMode += 'The sales process on our companies website does not 
 problemAlternativesMode += 'First, an old-school chatbot with a beforehand written structure. '
 problemAlternativesMode += 'Second, a chatbot using a large language model, without a pre-defined structure. '
 problemAlternativesMode += 'Third, an old-school contact form. '
-idea = SixThinkingChatbots(problemAlternativesMode, "alternativesCascading", "fdgdf")
+idea = SixThinkingChatbots(problemAlternativesMode, "alternativesCascading", "fjkg")
 
 #problemIdeaMode = 'The goal of the workshop is to find new ideas. The problem is: '
 #problemIdeaMode += 'The sales process on our companies website does not work very well. Management wants us to generate ideas how to improve the sales process.'

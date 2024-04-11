@@ -5,6 +5,10 @@ import time
 import logging
 from openai import OpenAI
 
+from config import API_KEY
+
+client = OpenAI(api_key = API_KEY)
+
 """ Domain class of this prototype """
 class SixThinkingChatbots():
     problem_statement = ''    
@@ -272,8 +276,6 @@ class SixThinkingChatbots():
 
 
     def callChatGPT(self, system_content, prompt):
-        #client = OpenAI(api_key = self.key)
-        client = OpenAI(api_key = "sfjkvnk")
 
         dialogue = client.chat.completions.create(
            model="gpt-4",
