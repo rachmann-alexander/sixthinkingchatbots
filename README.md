@@ -20,7 +20,7 @@ Prototypical Implemention of a AI-supported Six Thinking Hats-Methodology
 ```python
     from config import API_KEY
     from sixthinkingchatbots import SixThinkingChatbots
-    problemStatement = 'This is the problem statement.
+    problemStatement = 'This is the problem statement.'
     idea = SixThinkingChatbots(problemStatement, "idea")
     print(idea.exportToMd())
 ```
