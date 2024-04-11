@@ -5,9 +5,7 @@ import time
 import logging
 from openai import OpenAI
 
-from config import API_KEY
 
-client = OpenAI(api_key = API_KEY)
 
 """ Domain class of this prototype """
 class SixThinkingChatbots():
@@ -82,19 +80,19 @@ class SixThinkingChatbots():
 
 
     def renderFeedback(self):   
-        return true
+        return True
     
     def renderPlanning(self):   
-        return true
+        return True
 
     def renderProcessImprovement(self):   
-        return true
+        return True
     
     def renderSolvingProblems(self):   
-        return true
+        return True
 
     def renderReview(self):   
-        return true
+        return True
 
     def renderSolutions(self):        
         self.white_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
@@ -276,6 +274,8 @@ class SixThinkingChatbots():
 
 
     def callChatGPT(self, system_content, prompt):
+
+        client = OpenAI(api_key = self.key)
 
         dialogue = client.chat.completions.create(
            model="gpt-4",
