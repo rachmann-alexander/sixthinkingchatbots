@@ -11,13 +11,13 @@ Prototypical Implemention of a AI-supported Six Thinking Hats-Methodology
 2. Checkout repository.
 3. Create a file config.py with variable API_KEY
 
-```
+```python
     API_KEY='your-api-key'
 ```
 
 4. Create file runtime.py or any other name, such as
 
-```
+```python
     from config import API_KEY
     from sixthinkingchatbots import SixThinkingChatbots
     problemStatement = 'This is the problem statement.
