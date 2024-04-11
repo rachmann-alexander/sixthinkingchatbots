@@ -272,7 +272,8 @@ class SixThinkingChatbots():
 
 
     def callChatGPT(self, system_content, prompt):
-        client = OpenAI(api_key = self.key)
+        #client = OpenAI(api_key = self.key)
+        client = OpenAI(api_key = "sfjkvnk")
 
         dialogue = client.chat.completions.create(
            model="gpt-4",
