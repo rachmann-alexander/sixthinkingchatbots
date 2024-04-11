@@ -2,36 +2,8 @@
 
 from datetime import datetime
 import time
-from openai import OpenAI
 import logging
-
-from config import API_KEY
-
-client = OpenAI(api_key = API_KEY)
-
-# COLOR                             OVERVIEW
-# BLUE	                            "The Big Picture"
-# WHITE	                            "Facts & Information"
-# RED	                            "Feelings & Emotions"
-# BLACK	                            "Negative"
-# YELLOW	                        "Positive"
-# GREEN	                            "New Ideas"
-
-# ACTIVITY	                        HAT SEQUENCE
-# Initial Ideas	                    Blue, White, Green, Blue
-# Choosing between alternatives	    Blue, White, (Green), Yellow, Black, Red, Blue
-# Identifying Solutions	            Blue, White, Black, Green, Blue
-# Quick Feedback	                Blue, Black, Green, Blue
-# Strategic Planning	            Blue, Yellow, Black, White, Blue, Green, Blue
-# Process Improvement	            Blue, White, White (Other People's Views), Yellow, 
-#                                   Black, Green, Red, Blue
-# Solving Problems	                Blue, White, Green, Red, Yellow, Black, Green, Blue
-# Performance Review	            Blue, Red, White, Yellow, Black, Green, Blue
-
-
-####################################
-# Choosing between alternatives	    Blue, White, (Green), Yellow, Black, Red, Blue
-####################################
+from openai import OpenAI
 
 """ Domain class of this prototype """
 class SixThinkingChatbots():
@@ -64,11 +36,14 @@ class SixThinkingChatbots():
 
     result = ''
 
-    def __init__(self, problem_statement, mode):
+    key = ''
+
+    def __init__(self, problem_statement, mode, key):
         #logging.basicConfig(filename='stc.log', encoding='utf-8', level=logging.DEBUG)
 
         self.problem_statement = problem_statement
         self.mode = mode
+        self.key = key
 
         match self.mode:
             case "idea":
@@ -297,6 +272,8 @@ class SixThinkingChatbots():
 
 
     def callChatGPT(self, system_content, prompt):
+        client = OpenAI(api_key = self.key)
+
         dialogue = client.chat.completions.create(
            model="gpt-4",
             messages=[
