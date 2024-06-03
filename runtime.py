@@ -12,6 +12,6 @@ idea = SixThinkingChatbots(problemAlternativesMode, "alternativesCascading", API
 
 #problemIdeaMode = 'The goal of the workshop is to find new ideas. The problem is: '
 #problemIdeaMode += 'The sales process on our companies website does not work very well. Management wants us to generate ideas how to improve the sales process.'
-#idea = SixThinkingChatbots(problemIdeaMode, "idea")
+#idea = SixThinkingChatbots(problemIdeaMode, "idea", API_KEY)
 
 print(idea.exportToMd())
