@@ -100,13 +100,13 @@ class SixThinkingChatbots():
 
     def renderSolutions(self):        
         self.white_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
-        self.white_response = self.callLlm(self.white_system_content, self.white_prompt)
+        self.white_response = self.callLlm(self.white_system_content, self.white_prompt, model = "Mistral")
 
         self.black_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints.'
-        self.black_response = self.callLlm(self.black_system_content, self.black_prompt)
+        self.black_response = self.callLlm(self.black_system_content, self.black_prompt, model = "Mistral")
 
         self.green_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
-        self.green_response = self.callLlm(self.green_system_content, self.green_prompt)
+        self.green_response = self.callLlm(self.green_system_content, self.green_prompt, model = "Mistral")
 
         self.blue_prompt = 'Summarize the contributions of the participants, as listed beneath. Think about the problem statement and decide, based on the contributions of the participants, which alternative shoud be chosen. '
         self.blue_prompt += 'The problem statement of the workshop is as follows: ' + self.problem_statement + '\n\n'
@@ -115,7 +115,7 @@ class SixThinkingChatbots():
         self.blue_prompt += 'Contribution from a pessimist: ' + self.black_response + '\n\n'
         self.blue_prompt += 'Contribution from an optimist: ' + self.yellow_response + '\n\n'
         self.blue_prompt += 'Contribution from a innovation-oriented participant: ' + self.green_response
-        self.blue_response = self.callLlm(self.blue_system_content, self.blue_prompt)
+        self.blue_response = self.callLlm(self.blue_system_content, self.blue_prompt, model = "Mistral")
 
         self.result = '## White Hat\n'
         self.result += '### Prompt\n' + self.white_system_content + '\n' + self.white_prompt + '\n'
@@ -136,20 +136,20 @@ class SixThinkingChatbots():
 
     def renderAlternatives(self):
         self.white_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
-        self.white_response = self.callLlm(self.white_system_content, self.white_prompt)
+        self.white_response = self.callLlm(self.white_system_content, self.white_prompt, model = "Mistral")
         logging.info('White prompt: %s \n White response: %s ', self.white_prompt, self.white_response)
 
         self.green_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
-        self.green_response = self.callLlm(self.green_system_content, self.green_prompt)
+        self.green_response = self.callLlm(self.green_system_content, self.green_prompt, model = "Mistral")
 
         self.yellow_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
-        self.yellow_response = self.callLlm(self.yellow_system_content, self.yellow_prompt)
+        self.yellow_response = self.callLlm(self.yellow_system_content, self.yellow_prompt, model = "Mistral")
 
         self.black_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints.'
-        self.black_response = self.callLlm(self.black_system_content, self.black_prompt)
+        self.black_response = self.callLlm(self.black_system_content, self.black_prompt, model = "Mistral")
 
         self.red_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints.'
-        self.red_response = self.callLlm(self.red_system_content, self.red_prompt)
+        self.red_response = self.callLlm(self.red_system_content, self.red_prompt, model = "Mistral")
   
         self.blue_prompt = 'Summarize the contributions of the participants, as listed beneath. Think about the problem statement and decide, based on the contributions of the participants, which alternative shoud be chosen. '
         self.blue_prompt += 'The problem statement of the workshop is as follows: ' + self.problem_statement + '\n\n'
@@ -158,7 +158,7 @@ class SixThinkingChatbots():
         self.blue_prompt += 'Contribution from a pessimist: ' + self.black_response + '\n\n'
         self.blue_prompt += 'Contribution from an optimist: ' + self.yellow_response + '\n\n'
         self.blue_prompt += 'Contribution from a innovation-oriented participant: ' + self.green_response
-        self.blue_response = self.callLlm(self.blue_system_content, self.blue_prompt)
+        self.blue_response = self.callLlm(self.blue_system_content, self.blue_prompt, model = "Mistral")
 
         self.result = '## White Hat\n'
         self.result += '### Prompt\n' + self.white_system_content + '\n' + self.white_prompt + '\n'
@@ -186,25 +186,25 @@ class SixThinkingChatbots():
 
     def renderAlternativesCasc(self):
         self.white_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
-        self.white_response = self.callLlm(self.white_system_content, self.white_prompt)
+        self.white_response = self.callLlm(self.white_system_content, self.white_prompt, model = "Mistral")
         
         self.green_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
         self.green_prompt += self.green_prompt + 'These are statements by your predecessor: ' + self.white_response
-        self.green_response = self.callLlm(self.green_system_content, self.green_prompt)
+        self.green_response = self.callLlm(self.green_system_content, self.green_prompt, model = "Mistral")
 
         self.yellow_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
         self.yellow_prompt += self.yellow_prompt + 'These are statements by your predecessor: ' + self.white_response + '\n' + self.green_response
-        self.yellow_response = self.callLlm(self.yellow_system_content, self.yellow_prompt)
+        self.yellow_response = self.callLlm(self.yellow_system_content, self.yellow_prompt, model = "Mistral")
 
         self.black_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints.'
         self.black_prompt += self.black_prompt + 'These are statements by your predecessor: ' + self.white_response
         self.black_prompt += self.black_prompt + '\n' + self.green_response + '\n' + self.yellow_response
-        self.black_response = self.callLlm(self.black_system_content, self.black_prompt)
+        self.black_response = self.callLlm(self.black_system_content, self.black_prompt, model = "Mistral")
 
         self.red_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints.'
         self.red_prompt += self.red_prompt + 'These are statements by your predecessor: ' + self.white_response
         self.red_prompt += self.red_prompt + '\n' + self.green_response + '\n' + self.yellow_response + '\n' + self.black_response
-        self.red_response = self.callLlm(self.red_system_content, self.red_prompt)
+        self.red_response = self.callLlm(self.red_system_content, self.red_prompt, model = "Mistral")
   
         self.blue_prompt = 'Summarize the contributions of the participants, as listed beneath. Think about the problem statement and decide, based on the contributions of the participants, which alternative shoud be chosen. '
         self.blue_prompt += 'The problem statement of the workshop is as follows: ' + self.problem_statement + '\n\n'
@@ -213,7 +213,7 @@ class SixThinkingChatbots():
         self.blue_prompt += 'Contribution from a pessimist: ' + self.black_response + '\n\n'
         self.blue_prompt += 'Contribution from an optimist: ' + self.yellow_response + '\n\n'
         self.blue_prompt += 'Contribution from a innovation-oriented participant: ' + self.green_response
-        self.blue_response = self.callLlm(self.blue_system_content, self.blue_prompt)
+        self.blue_response = self.callLlm(self.blue_system_content, self.blue_prompt, model = "Mistral")
 
         self.result = '## White Hat\n'
         self.result += '### Prompt\n' + self.white_system_content + '\n' + self.white_prompt + '\n'
@@ -241,16 +241,16 @@ class SixThinkingChatbots():
   
     def renderIdea(self):
         self.white_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
-        self.white_response = self.callLlm(self.white_system_content, self.white_prompt)
+        self.white_response = self.callLlm(self.white_system_content, self.white_prompt, model = "Mistral")
 
         self.green_prompt = self.problem_statement + ' Describe your point of view to this problem, using only three bulletpoints. '
-        self.green_response = self.callLlm(self.green_system_content, self.green_prompt)
+        self.green_response = self.callLlm(self.green_system_content, self.green_prompt, model = "Mistral")
 
         self.blue_prompt = 'Summarize the contributions of the participants, as listed beneath. Think about the problem statement and decide, based on the contributions of the participants, which ideas shoud be chosen. '
         self.blue_prompt += 'The problem statement of the workshop is as follows: ' + self.problem_statement + '\n\n'
         self.blue_prompt += 'Contribution from a fact-oriented participant: ' + self.white_response + '\n\n'
         self.blue_prompt += 'Contribution from a innovation-oriented participant: ' + self.green_response
-        self.blue_response = self.callLlm(self.blue_system_content, self.blue_prompt)
+        self.blue_response = self.callLlm(self.blue_system_content, self.blue_prompt, model = "Mistral")
         
         self.result = '## White Hat\n'
         self.result += '### Prompt\n' + self.white_system_content + '\n' + self.white_prompt + '\n'
@@ -277,8 +277,16 @@ class SixThinkingChatbots():
         return(export)
 
 
-    def callLlm(self, system_content, prompt):
-        return self.callMistral(system_content, prompt)
+    def callLlm(self, system_content, prompt, model="Mistral"):
+        match model:
+            case "Mistral":
+                return self.callMistral(system_content, prompt)
+            case  "gpt4o":
+                return self.callChatGPT(system_content, prompt)
+            case  "llama":
+                return self.callLlama(system_content, prompt)
+            case _:
+                return "Specify model."
 
 
 
