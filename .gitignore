@@ -1,3 +1,5 @@
 config.py
 __pycache__
 secret.md
+.DS_Store
+runtime.py
