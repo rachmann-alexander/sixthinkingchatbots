@@ -6,6 +6,8 @@ import logging
 from openai import OpenAI
 from transformers import pipeline
 from huggingface_hub import login
+import requests
+from config import MISTRAL_API_KEY
 
 
 
@@ -276,7 +278,7 @@ class SixThinkingChatbots():
 
 
     def callLlm(self, system_content, prompt):
-        return self.callLlama(system_content, prompt)
+        return self.callMistral(system_content, prompt)
 
 
 
@@ -315,8 +317,32 @@ class SixThinkingChatbots():
         time.sleep(0.1)
         return response[0]['generated_text'].split("User:")[-1].strip()
 
+    
+    def callMistral(self, system_content, prompt):
+        api_url = "https://api.mistral.ai/v1/chat/completions"
+        headers = {
+            "Authorization": f"Bearer {MISTRAL_API_KEY}",
+            "Content-Type": "application/json"
+        }
 
+        payload = {
+            "model": "mistral-tiny", 
+            "messages": [
+                {"role": "system", "content": system_content},
+                {"role": "user", "content": prompt}
+            ],
+            "max_tokens": 512,
+            "temperature": 0.5,
+            "top_p": 0.5
+        }
 
+        response = requests.post(api_url, json=payload, headers=headers)
+        time.sleep(1)
+
+        if response.status_code == 200:
+            return response.json()["choices"][0]["message"]["content"].strip()
+        else:
+            return f"Fehler: {response.status_code}, {response.text}"
 
 
 problemAlternativesMode = 'The goal of the workshop is to evaluate three alternatives to a problem. The problem is: '
