@@ -3,9 +3,8 @@ Prototypical Implemention of a AI-supported Six Thinking Hats-Methodology
 
 # Requirements
 * Up to date Python
-* OpenAI Library
-* O
-* Mistral Plan in Experimental stage
+* Modules: datetime, time, logging, OpenAI, transformers, huggingface_hub, requests. Not all of them are required.
+* January 2025: Mistral Plan in Experimental stage
 
 # How to use
 1. (If necessary, read [this wikipedia page](https://en.wikipedia.org/wiki/Six_Thinking_Hats) to understand Six Thinking Hats.)
