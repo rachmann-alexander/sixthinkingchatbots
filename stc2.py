@@ -352,3 +352,41 @@ class SixThinkingChatbots():
         else:
             return f"Fehler: {response.status_code}, {response.text}"
 
+class LlmHandler():
+    def __init__(self, system_content, prompt):
+        pass
+
+class MistralHandler(LlmHandler):
+    def __init__(self, system_content, prompt):
+        self.key = MISTRAL_API_KEY
+        self.url = "https://api.mistral.ai/v1/chat/completions"
+
+        self.headers = {
+            "Authorization": f"Bearer {self.key}",
+            "Content-Type": "application/json"
+        }
+        self.payload = {
+            "model": "mistral-tiny", 
+            "messages": [
+                {"role": "system", "content": system_content},
+                {"role": "user", "content": prompt}
+            ],
+            "max_tokens": 512,
+            "temperature": 0.5,
+            "top_p": 0.5
+        }
+
+        self.sleeptime = 1
+
+        return self.call()
+
+    def call(self):
+        time.sleep(self.sleeptime)
+
+        response = requests.post(self.url, json=self.payload, headers=self.headers)
+
+        if response.status_code == 200:
+            return response.json()["choices"][0]["message"]["content"].strip()
+        else:
+            return f"Fehler: {response.status_code}, {response.text}"
+
