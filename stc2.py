@@ -44,7 +44,7 @@ class SixThinkingChatbots():
     result = ''
     
 
-    def __init__(self, problem_statement, mode="alternativesCascading", model="Mistral", outputhandler="html"):
+    def __init__(self, problem_statement, mode="alternativesCascading", model="Mistral", outputhandler="md"):
 
         self.mode = mode
 
