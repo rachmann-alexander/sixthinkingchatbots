@@ -26,7 +26,7 @@ problemAlternativesMode += 'The sales process on our companies website does not 
 problemAlternativesMode += 'First, an old-school chatbot with a beforehand written structure. '
 problemAlternativesMode += 'Second, a chatbot using a large language model, without a pre-defined structure. '
 problemAlternativesMode += 'Third, an old-school contact form. '
-idea = SixThinkingChatbots(problemAlternativesMode, "alternativesCascading", MISTRAL_API_KEY)
+idea = SixThinkingChatbots(problemAlternativesMode, "alternativesCascading")
 
 print(idea.exportToMd())
 ```
