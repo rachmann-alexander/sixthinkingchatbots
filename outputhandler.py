@@ -1,6 +1,8 @@
 from abc import ABC
 
 class outputhandler(ABC):
+    ''' Defines only the interface of the subclasses.
+    '''
     def __init__(self):
         pass
 
@@ -18,6 +20,9 @@ class outputhandler(ABC):
         
 
 class MarkdownHandler(outputhandler):
+    '''
+    Gives helper methods to use markdown syntax.
+    '''
     def __init__(self):
         pass
 
@@ -45,6 +50,9 @@ class MarkdownHandler(outputhandler):
 
 
 class HtmlHandler(outputhandler):
+    '''
+    Gives helper methods to use HTML syntax.
+    '''
     def __init__(self):
         pass
 

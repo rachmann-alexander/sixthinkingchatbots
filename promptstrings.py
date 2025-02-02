@@ -1,3 +1,15 @@
+'''
+Text file for the prompts that are sent ot the large language model.
+
+PS = Prompt String
+SYSTEM_CONTENT = The content that is sent to the model in the system prompt section, as opposed to the user prompt section. 
+GENERIC_TASK = A prompt that is given to all hats in the user prompt section; regardless what hat and what problem statement.
+CONTRIB (as in PS_BLUE_CONTRIB_WHITE_TASK) = The string that is given from the blue hat to other hats, in this example the white hat. At the time of writing, this happens only in alternativesCascasding-mode.
+WH, YH, GH, BH, RH = The literal strings that are used to identify the different hats in the text. WH = white hat, YH = yellow hat etc.
+
+'''
+
+
 PS_WHITE_SYSTEM_CONTENT = 'You are a participant of a workshop. Your decision making is fact based and your argumentation is very structured. '
 
 PS_GREEN_SYSTEM_CONTENT = 'You are a participant of a workshop. Your decision making is based on the possibilities of innovations. '

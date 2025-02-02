@@ -14,9 +14,17 @@ from llmhandler import *
 from outputhandler import *
 
 
-""" Domain class of this prototype """
+
 class SixThinkingChatbots():
-    problem_statement = ''    
+    """ Domain class of this application 
+    Takes four arguments:
+
+    problem_statement: The text of what the user want to be discussed by the chatbots
+    mode: A mode is the order in which the hats are prompted. Default is alternativesCascading. Other modes may be idea, alternatives, solutions, feedback, planning, processimprovement, solvingproblems, review. See literature about Six Thinking Hats to understand more about the modes.
+    model: The large language model the hats will use. Default is Mistral. 
+    outputhandler: Is the format the chatbot will put out. Default is markdown ("md"). Html ist also implemented.
+    
+    """ 
     white_system_content = PS_WHITE_SYSTEM_CONTENT
     white_prompt = ''
     white_response = ''
@@ -45,6 +53,12 @@ class SixThinkingChatbots():
     
 
     def __init__(self, problem_statement, mode="alternativesCascading", model="Mistral", outputhandler="md"):
+        ''' Constructor of the class SixThinkingChatbots
+
+        The constructor takes four arguments; see the docstring of the class for more information.
+
+        The constructor controls more or less which mode is used; that is all.
+        '''
 
         self.mode = mode
 
