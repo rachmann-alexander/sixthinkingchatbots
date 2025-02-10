@@ -10,10 +10,18 @@ from config import MISTRAL_API_KEY, OPENAI_API_KEY
 
 
 class LlmHandler(ABC):
+    '''
+    Defines only the interface of the subclasses.
+    '''
     def __init__(self):
         return None
 
 class MistralHandler(LlmHandler):
+    '''
+    Connects to MistralHandler. 
+
+    Takes no explicit arguments. But watch out: Implicitly, the API key is used via import from config.py.
+    '''
     def __init__(self):
         self.sleeptime = 1
         self.max_tokens = 512
