@@ -38,3 +38,4 @@ print(idea.exportToMd())
 
 # Addendum
 There are methods for usage with OpenAI / ChatGPT and Meta / Llama. In order to use these, change method callLlm() and change api keys.
+
