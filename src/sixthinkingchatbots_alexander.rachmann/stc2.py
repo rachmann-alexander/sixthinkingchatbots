@@ -52,7 +52,7 @@ class SixThinkingChatbots():
     result = ''
     
 
-    def __init__(self, problem_statement, mode="alternativesCascading", model="Mistral", outputhandler="md"):
+    def __init__(self, problem_statement, mode="alternativesCascading", model="Mistral", outputhandler="reveal"):
         ''' Constructor of the class SixThinkingChatbots
 
         The constructor takes four arguments; see the docstring of the class for more information.
@@ -71,6 +71,8 @@ class SixThinkingChatbots():
                 self.outputhandler = MarkdownHandler()
             case "html":
                 self.outputhandler = HtmlHandler()
+            case "reveal":
+                self.outputhandler = RevealJSHandler()
             case _:
                 self.outputhandler = MarkdownHandler()
 
@@ -286,6 +288,7 @@ class SixThinkingChatbots():
                                  + datetime.now().strftime("%d.%m.%Y %H:%M:%S")),
             self.outputhandler.h2(PS_LITERAL_PROBLEM_STATEMENT),
             self.outputhandler.p(self.problem_statement)])
+        contentheader = self.outputhandler.sectionWrap(contentheader)
 
         if self.white_response != '':
             contentwh = "".join([
@@ -297,6 +300,7 @@ class SixThinkingChatbots():
                           + self.white_response)])
         else: 
             contentwh = ""
+        contentwh = self.outputhandler.sectionWrap(contentwh)
 
         if self.green_response != '':
             contentgh = "".join([
@@ -308,6 +312,7 @@ class SixThinkingChatbots():
                           + self.green_response)])
         else: 
             contentgh = ""
+        contentgh = self.outputhandler.sectionWrap(contentgh)
 
         if self.yellow_response != '':
             contentyh = "".join([
@@ -319,10 +324,11 @@ class SixThinkingChatbots():
                           + self.yellow_response)])
         else: 
             contentyh = ""
+        contentyh = self.outputhandler.sectionWrap(contentyh)
 
         if self.black_response != '':
             contentbh = "".join([
-                self.outputhandler.h2(PS_LITERAL_BH),
+                self.outputhandler.h2(PS_LITERAL_BlaH),
                 self.outputhandler.p(PS_LITERAL_PROMPT 
                           + self.black_system_content 
                           + self.black_prompt),
@@ -330,6 +336,7 @@ class SixThinkingChatbots():
                           + self.black_response)])
         else: 
             contentbh = ""
+        contentbh = self.outputhandler.sectionWrap(contentbh)
 
         if self.red_response != '':
             contentrh = "".join([
@@ -341,17 +348,19 @@ class SixThinkingChatbots():
                           + self.red_response)])
         else: 
             contentrh = ""
+        contentrh = self.outputhandler.sectionWrap(contentrh)
 
         if self.blue_response != '':
-            contentbh = "".join([
-                self.outputhandler.h2(PS_LITERAL_BH),
+            contentbluh = "".join([
+                self.outputhandler.h2(PS_LITERAL_BluH),
                 self.outputhandler.p(PS_LITERAL_PROMPT 
                           + self.blue_system_content 
                           + self.blue_prompt),
                 self.outputhandler.p(PS_LITERAL_RESPONSE   
                           + self.blue_response)])
         else: 
-            contentbh = ""
+            contentbluh = ""
+        contentbluh = self.outputhandler.sectionWrap(contentbluh)
 
         document = "".join([contentheader, 
                           contentwh, 
@@ -359,7 +368,115 @@ class SixThinkingChatbots():
                           contentyh, 
                           contentbh, 
                           contentrh, 
-                          contentbh])
+                          contentbluh])
+        
+        full_document = self.outputhandler.document("", document)
 
-        return(self.outputhandler.document("", document))
+        self.outputhandler.storeFile(full_document, "index")
+
+        return(full_document)
+    
+    def exportShort(self):
+        '''Export the content of the chatbots to a file
+        
+        The method takes not input parameters, but relies heavily on
+        class variables. Also the methods uses the outputhandler a lot.
+
+        It checks for every hat, if there are responses from the hat; if there are none of a hat, no text of this hat will be exported.
+        The order in which the results of the hats are exported is always the same: white, green, yellow, black, red, blue; it does not matter in which order they were prompted.
+
+        Different to export(), only responses of the hats are exported.
+        '''
+
+        if isinstance(self.outputhandler, RevealJSHandler):
+            whimage = '<img class="reveal" src="img/whitehat.png" alt="White Hat" />'
+            bluhimage = '<img class="reveal" src="img/bluehat.png" alt="Blue Hat" />'
+            bhimage = '<img class="reveal" src="img/blackhat.png" alt="Black Hat" />'
+            yhimage = '<img class="reveal" src="img/yellowhat.png" alt="Yellow Hat" />'
+            ghimage = '<img class="reveal" src="img/greenhat.png" alt="Green Hat" />'
+            rhimage = '<img class="reveal" src="img/redhat.png" alt="Red Hat" />'
+            resultimage = '<img class="reveal" src="img/result.png" alt="Result from Blue Hat" />'
+        else:
+            rhimage = ''
+            resultimage = ''
+            whimage = ''
+            bluhimage = ''
+            bhimage = ''
+            yhimage = ''
+            ghimage = ''
+
+        contentheader = "".join([
+            self.outputhandler.h1(PS_LITERAL_STC),
+            bluhimage,
+            self.outputhandler.h2(PS_LITERAL_PROBLEM_STATEMENT),
+            self.outputhandler.p(self.problem_statement)])
+        contentheader = self.outputhandler.sectionWrap(contentheader)
+
+        if self.white_response != '':
+            contentwh = "".join([
+                self.outputhandler.h2(PS_LITERAL_WH),
+                whimage,
+                self.outputhandler.p(self.white_response)])
+        else: 
+            contentwh = ""
+        contentwh = self.outputhandler.sectionWrap(contentwh)
+
+        if self.green_response != '':
+            contentgh = "".join([
+                self.outputhandler.h2(PS_LITERAL_GH),
+                ghimage,
+                self.outputhandler.p(self.green_response)])
+        else: 
+            contentgh = ""
+        contentgh = self.outputhandler.sectionWrap(contentgh)
+
+        if self.yellow_response != '':
+            contentyh = "".join([
+                self.outputhandler.h2(PS_LITERAL_YH),
+                yhimage,
+                self.outputhandler.p(self.yellow_response)])
+        else: 
+            contentyh = ""
+        contentyh = self.outputhandler.sectionWrap(contentyh)
+
+        if self.black_response != '':
+            contentbh = "".join([
+                self.outputhandler.h2(PS_LITERAL_BlaH),
+                bhimage,
+                self.outputhandler.p(self.black_response)])
+        else: 
+            contentbh = ""
+        contentbh = self.outputhandler.sectionWrap(contentbh)
+
+        if self.red_response != '':
+            contentrh = "".join([
+                self.outputhandler.h2(PS_LITERAL_RH),
+                rhimage,
+                self.outputhandler.p(self.red_response)])
+        else: 
+            contentrh = ""
+        contentrh = self.outputhandler.sectionWrap(contentrh)
+
+        if self.blue_response != '':
+            contentbluh = "".join([
+                self.outputhandler.h2(PS_LITERAL_BluH),
+                resultimage,
+                self.outputhandler.p(self.blue_response)])
+        else: 
+            contentbluh = ""
+        contentbluh = self.outputhandler.sectionWrap(contentbluh)
+
+        document = "".join([contentheader, 
+                          contentwh, 
+                          contentgh, 
+                          contentyh, 
+                          contentbh, 
+                          contentrh, 
+                          contentbluh])
+        
+        full_document = self.outputhandler.document("", document)
+
+        self.outputhandler.storeFile(full_document, "index")
+
+        return(full_document)
 

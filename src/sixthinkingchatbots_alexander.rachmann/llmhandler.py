@@ -23,7 +23,7 @@ class MistralHandler(LlmHandler):
     Takes no explicit arguments. But watch out: Implicitly, the API key is used via import from config.py.
     '''
     def __init__(self):
-        self.sleeptime = 1
+        self.sleeptime = 0.08
         self.max_tokens = 512
         self.temperature = 0.5
         self.top_p = 0.5

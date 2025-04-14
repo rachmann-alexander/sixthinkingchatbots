@@ -43,9 +43,9 @@ PS_GENERIC_PREDECESSOR = 'These are statements by your predecessor: '
 PS_LITERAL_WH = "White Hat " 
 PS_LITERAL_GH = "Green Hat "
 PS_LITERAL_YH = "Yellow Hat "
-PS_LITERAL_BH = "Black Hat "
+PS_LITERAL_BlaH = "Black Hat "
 PS_LITERAL_RH = "Red Hat "
-PS_LITERAL_BH = "Blue Hat "
+PS_LITERAL_BluH = "Blue Hat "
 
 PS_LITERAL_PROMPT = "Prompt: "
 PS_LITERAL_RESPONSE = "Response: "
